@@ -6,7 +6,7 @@ return {
 		{
 			"<leader>f",
 			function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				-- require("conform").format({ async = true, lsp_fallback = true })
 			end,
 			desc = "Format buffer",
 		},
@@ -22,7 +22,7 @@ return {
 		},
 		format_on_save = {
 			timeout_ms = 100,
-			-- lsp_fallback = true,
+			lsp_fallback = true,
 		},
 	},
 	-- init = function()
