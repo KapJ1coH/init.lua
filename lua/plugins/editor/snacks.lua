@@ -17,7 +17,7 @@ local header = [[
 ||.=='    _-'                                                     `' |  /==.||
 =='    _-'                        N E O V I M                         \/   `==
 \   _-'                                                                `-_   /
- `''                                                                      ``' 
+ `''                                                                      ``'
 ]]
 
 
@@ -63,12 +63,45 @@ return
     opts = {
         bigfile = { enabled = true },
         dashboard = dashboard,
+        indent = { enabled = true },
+        input = { enabled = true },
+        gitbrowse = {
+            enabled = true,
+            -- your gitbrowse configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            url_patterns = {
+                ["github%.com"] = {
+                    branch = "/tree/{branch}",
+                    file = "/blob/{branch}/{file}#L{line_start}-L{line_end}",
+                    commit = "/commit/{commit}",
+                },
+                ["gitscm%.mda.ca"] = {
+                    branch = "/-/tree/{branch}",
+                    file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
+                    commit = "/-/commit/{commit}",
+                },
+                ["bitbucket%.org"] = {
+                    branch = "/src/{branch}",
+                    file = "/src/{branch}/{file}#lines-{line_start}-L{line_end}",
+                    commit = "/commits/{commit}",
+                },
+            },
+        },
 
         notifier = {
             enabled = true,
             timeout = 3000,
         },
         quickfile = { enabled = true },
+        scroll = {
+            enabled = true,
+            -- animate = {
+            --     duration = { step = , total = 250 },
+            --     easing = "inElastic",
+
+            -- },
+        },
         statuscolumn = { enabled = true },
         words = { enabled = true },
         styles = {
@@ -134,6 +167,8 @@ return
                 Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map(
                     "<leader>ub")
                 Snacks.toggle.inlay_hints():map("<leader>uh")
+                Snacks.toggle.indent():map("<leader>ug")
+                Snacks.toggle.dim():map("<leader>uD")
             end,
         })
     end,
