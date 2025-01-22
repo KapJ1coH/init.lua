@@ -63,15 +63,15 @@ return {
             --     end,
             -- }
 
-            require('lspconfig').sqls.setup {
-                on_init = function(client)
-                    client.server_capabilities.documentFormattingProvider = false
-                    client.server_capabilities.documentFormattingRangeProvider = false
-                end,
-                on_attach = function(client, bufnr)
-                    require('sqls').on_attach(client, bufnr)
-                end,
-            }
+            -- require('lspconfig').sqls.setup {
+            --     on_init = function(client)
+            --         client.server_capabilities.documentFormattingProvider = false
+            --         client.server_capabilities.documentFormattingRangeProvider = false
+            --     end,
+            --     on_attach = function(client, bufnr)
+            --         require('sqls').on_attach(client, bufnr)
+            --     end,
+            -- }
 
 
             --- if you want to know more about lsp-zero and mason.nvim
