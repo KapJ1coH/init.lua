@@ -1,6 +1,7 @@
 return {
 	"ThePrimeagen/harpoon",
 	branch = "harpoon2",
+    enabled = false,
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 	},
